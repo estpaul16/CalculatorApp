@@ -13,7 +13,7 @@
    <children>
       <StackPane id="result-area" blendMode="DARKEN" prefHeight="80.0" prefWidth="200.0" stylesheets="@application.css">
          <children>
-            <Label id="result" fx:id="result" text="343" textFill="#111111" StackPane.alignment="BOTTOM_RIGHT">
+            <Label id="result" fx:id="result" prefWidth="92.0" text="343" textAlignment="JUSTIFY" textFill="#111111" StackPane.alignment="BOTTOM_RIGHT">
                <StackPane.margin>
                   <Insets right="10.0" />
                </StackPane.margin>
@@ -29,22 +29,34 @@
                <styleClass>
                   <String fx:value="top-buttons" />
                   <String fx:value="button" />
-               </styleClass></Button>
+               </styleClass>
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
             <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="58.0" text="+/-">
                <styleClass>
                   <String fx:value="top-buttons" />
                   <String fx:value="button" />
-               </styleClass></Button>
-            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="58.0" text="\%">
+               </styleClass>
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
+            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="58.0" text="\%">
                <styleClass>
                   <String fx:value="top-buttons" />
                   <String fx:value="button" />
-               </styleClass></Button>
+               </styleClass>
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
             <Button mnemonicParsing="false" onAction="#handleOperatorKeys" prefHeight="50.0" prefWidth="58.0" text="÷">
                <styleClass>
                   <String fx:value="right-buttons" />
                   <String fx:value="button" />
-               </styleClass></Button>
+               </styleClass>
+               <font>
+                  <Font size="24.0" />
+               </font></Button>
          </children>
       </HBox>
       <HBox prefHeight="50.0" prefWidth="200.0">
@@ -53,22 +65,34 @@
                <styleClass>
                   <String fx:value="other-buttons" />
                   <String fx:value="button" />
-               </styleClass></Button>
+               </styleClass>
+               <font>
+                  <Font size="22.0" />
+               </font></Button>
             <Button mnemonicParsing="false" onAction="#handleNumKeys" prefHeight="50.0" prefWidth="58.0" text="8">
                <styleClass>
                   <String fx:value="other-buttons" />
                   <String fx:value="button" />
-               </styleClass></Button>
+               </styleClass>
+               <font>
+                  <Font size="22.0" />
+               </font></Button>
             <Button mnemonicParsing="false" onAction="#handleNumKeys" prefHeight="50.0" prefWidth="58.0" text="9">
                <styleClass>
                   <String fx:value="other-buttons" />
                   <String fx:value="button" />
-               </styleClass></Button>
+               </styleClass>
+               <font>
+                  <Font size="22.0" />
+               </font></Button>
             <Button mnemonicParsing="false" onAction="#handleOperatorKeys" prefHeight="50.0" prefWidth="58.0" text="x">
                <styleClass>
                   <String fx:value="right-buttons" />
                   <String fx:value="button" />
-               </styleClass></Button>
+               </styleClass>
+               <font>
+                  <Font size="24.0" />
+               </font></Button>
          </children>
       </HBox>
       <HBox prefHeight="50.0" prefWidth="200.0">
@@ -77,22 +101,34 @@
                <styleClass>
                   <String fx:value="other-buttons" />
                   <String fx:value="button" />
-               </styleClass></Button>
+               </styleClass>
+               <font>
+                  <Font size="22.0" />
+               </font></Button>
             <Button mnemonicParsing="false" onAction="#handleNumKeys" prefHeight="50.0" prefWidth="58.0" text="5">
                <styleClass>
                   <String fx:value="other-buttons" />
                   <String fx:value="button" />
-               </styleClass></Button>
+               </styleClass>
+               <font>
+                  <Font size="22.0" />
+               </font></Button>
             <Button mnemonicParsing="false" onAction="#handleNumKeys" prefHeight="50.0" prefWidth="58.0" text="6">
                <styleClass>
                   <String fx:value="other-buttons" />
                   <String fx:value="button" />
-               </styleClass></Button>
+               </styleClass>
+               <font>
+                  <Font size="22.0" />
+               </font></Button>
             <Button mnemonicParsing="false" onAction="#handleOperatorKeys" prefHeight="50.0" prefWidth="58.0" text="-">
                <styleClass>
                   <String fx:value="right-buttons" />
                   <String fx:value="button" />
-               </styleClass></Button>
+               </styleClass>
+               <font>
+                  <Font size="24.0" />
+               </font></Button>
          </children>
       </HBox>
       <HBox prefHeight="50.0" prefWidth="200.0">
@@ -101,44 +137,65 @@
                <styleClass>
                   <String fx:value="other-buttons" />
                   <String fx:value="button" />
-               </styleClass></Button>
+               </styleClass>
+               <font>
+                  <Font size="22.0" />
+               </font></Button>
             <Button mnemonicParsing="false" onAction="#handleNumKeys" prefHeight="50.0" prefWidth="58.0" text="2">
                <styleClass>
                   <String fx:value="other-buttons" />
                   <String fx:value="button" />
-               </styleClass></Button>
+               </styleClass>
+               <font>
+                  <Font size="22.0" />
+               </font></Button>
             <Button mnemonicParsing="false" onAction="#handleNumKeys" prefHeight="50.0" prefWidth="58.0" text="3">
                <styleClass>
                   <String fx:value="other-buttons" />
                   <String fx:value="button" />
-               </styleClass></Button>
+               </styleClass>
+               <font>
+                  <Font size="22.0" />
+               </font></Button>
             <Button mnemonicParsing="false" onAction="#handleOperatorKeys" prefHeight="50.0" prefWidth="58.0" text="+">
                <styleClass>
                   <String fx:value="right-buttons" />
                   <String fx:value="button" />
-               </styleClass></Button>
+               </styleClass>
+               <font>
+                  <Font size="24.0" />
+               </font></Button>
          </children>
       </HBox>
       <HBox prefHeight="50.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#handleNumKeys" prefHeight="50.0" prefWidth="116.0" text="0">
+            <Button id="button-zero" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleNumKeys" prefHeight="50.0" prefWidth="116.0" text="0">
                <HBox.margin>
                   <Insets />
                </HBox.margin>
                <styleClass>
                   <String fx:value="other-buttons" />
                   <String fx:value="button" />
-               </styleClass></Button>
+               </styleClass>
+               <font>
+                  <Font size="22.0" />
+               </font></Button>
             <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="58.0" text=".">
                <styleClass>
                   <String fx:value="other-buttons" />
                   <String fx:value="button" />
-               </styleClass></Button>
+               </styleClass>
+               <font>
+                  <Font size="19.0" />
+               </font></Button>
             <Button mnemonicParsing="false" onAction="#handleOperatorKeys" prefHeight="50.0" prefWidth="58.0" text="=">
                <styleClass>
                   <String fx:value="right-buttons" />
                   <String fx:value="button" />
-               </styleClass></Button>
+               </styleClass>
+               <font>
+                  <Font size="24.0" />
+               </font></Button>
          </children>
       </HBox>
    </children>
