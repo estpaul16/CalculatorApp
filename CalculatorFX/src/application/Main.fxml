@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -8,11 +9,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="321.0" prefWidth="232.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+<VBox id="full-box" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="321.0" prefWidth="232.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
    <children>
-      <StackPane prefHeight="80.0" prefWidth="200.0">
+      <StackPane id="result-area" blendMode="DARKEN" prefHeight="80.0" prefWidth="200.0" stylesheets="@application.css">
          <children>
-            <Label fx:id="result" text="343" StackPane.alignment="BOTTOM_RIGHT">
+            <Label id="result" fx:id="result" text="343" textFill="#111111" StackPane.alignment="BOTTOM_RIGHT">
                <StackPane.margin>
                   <Insets right="10.0" />
                </StackPane.margin>
@@ -24,41 +25,120 @@
       </StackPane>
       <HBox prefHeight="50.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="58.0" text="AC" />
-            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="58.0" text="+/-" />
-            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="58.0" text="\%" />
-            <Button mnemonicParsing="false" onAction="#handleOperatorKeys" prefHeight="50.0" prefWidth="58.0" text="÷" />
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="58.0" text="AC">
+               <styleClass>
+                  <String fx:value="top-buttons" />
+                  <String fx:value="button" />
+               </styleClass></Button>
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="58.0" text="+/-">
+               <styleClass>
+                  <String fx:value="top-buttons" />
+                  <String fx:value="button" />
+               </styleClass></Button>
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="58.0" text="\%">
+               <styleClass>
+                  <String fx:value="top-buttons" />
+                  <String fx:value="button" />
+               </styleClass></Button>
+            <Button mnemonicParsing="false" onAction="#handleOperatorKeys" prefHeight="50.0" prefWidth="58.0" text="÷">
+               <styleClass>
+                  <String fx:value="right-buttons" />
+                  <String fx:value="button" />
+               </styleClass></Button>
          </children>
       </HBox>
       <HBox prefHeight="50.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#handleNumKeys" prefHeight="50.0" prefWidth="58.0" text="7" />
-            <Button mnemonicParsing="false" onAction="#handleNumKeys" prefHeight="50.0" prefWidth="58.0" text="8" />
-            <Button mnemonicParsing="false" onAction="#handleNumKeys" prefHeight="50.0" prefWidth="58.0" text="9" />
-            <Button mnemonicParsing="false" onAction="#handleOperatorKeys" prefHeight="50.0" prefWidth="58.0" text="x" />
+            <Button mnemonicParsing="false" onAction="#handleNumKeys" prefHeight="50.0" prefWidth="58.0" text="7">
+               <styleClass>
+                  <String fx:value="other-buttons" />
+                  <String fx:value="button" />
+               </styleClass></Button>
+            <Button mnemonicParsing="false" onAction="#handleNumKeys" prefHeight="50.0" prefWidth="58.0" text="8">
+               <styleClass>
+                  <String fx:value="other-buttons" />
+                  <String fx:value="button" />
+               </styleClass></Button>
+            <Button mnemonicParsing="false" onAction="#handleNumKeys" prefHeight="50.0" prefWidth="58.0" text="9">
+               <styleClass>
+                  <String fx:value="other-buttons" />
+                  <String fx:value="button" />
+               </styleClass></Button>
+            <Button mnemonicParsing="false" onAction="#handleOperatorKeys" prefHeight="50.0" prefWidth="58.0" text="x">
+               <styleClass>
+                  <String fx:value="right-buttons" />
+                  <String fx:value="button" />
+               </styleClass></Button>
          </children>
       </HBox>
       <HBox prefHeight="50.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#handleNumKeys" prefHeight="50.0" prefWidth="58.0" text="4" />
-            <Button mnemonicParsing="false" onAction="#handleNumKeys" prefHeight="50.0" prefWidth="58.0" text="5" />
-            <Button mnemonicParsing="false" onAction="#handleNumKeys" prefHeight="50.0" prefWidth="58.0" text="6" />
-            <Button mnemonicParsing="false" onAction="#handleOperatorKeys" prefHeight="50.0" prefWidth="58.0" text="-" />
+            <Button mnemonicParsing="false" onAction="#handleNumKeys" prefHeight="50.0" prefWidth="58.0" text="4">
+               <styleClass>
+                  <String fx:value="other-buttons" />
+                  <String fx:value="button" />
+               </styleClass></Button>
+            <Button mnemonicParsing="false" onAction="#handleNumKeys" prefHeight="50.0" prefWidth="58.0" text="5">
+               <styleClass>
+                  <String fx:value="other-buttons" />
+                  <String fx:value="button" />
+               </styleClass></Button>
+            <Button mnemonicParsing="false" onAction="#handleNumKeys" prefHeight="50.0" prefWidth="58.0" text="6">
+               <styleClass>
+                  <String fx:value="other-buttons" />
+                  <String fx:value="button" />
+               </styleClass></Button>
+            <Button mnemonicParsing="false" onAction="#handleOperatorKeys" prefHeight="50.0" prefWidth="58.0" text="-">
+               <styleClass>
+                  <String fx:value="right-buttons" />
+                  <String fx:value="button" />
+               </styleClass></Button>
          </children>
       </HBox>
       <HBox prefHeight="50.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#handleNumKeys" prefHeight="50.0" prefWidth="58.0" text="1" />
-            <Button mnemonicParsing="false" onAction="#handleNumKeys" prefHeight="50.0" prefWidth="58.0" text="2" />
-            <Button mnemonicParsing="false" onAction="#handleNumKeys" prefHeight="50.0" prefWidth="58.0" text="3" />
-            <Button mnemonicParsing="false" onAction="#handleOperatorKeys" prefHeight="50.0" prefWidth="58.0" text="+" />
+            <Button mnemonicParsing="false" onAction="#handleNumKeys" prefHeight="50.0" prefWidth="58.0" text="1">
+               <styleClass>
+                  <String fx:value="other-buttons" />
+                  <String fx:value="button" />
+               </styleClass></Button>
+            <Button mnemonicParsing="false" onAction="#handleNumKeys" prefHeight="50.0" prefWidth="58.0" text="2">
+               <styleClass>
+                  <String fx:value="other-buttons" />
+                  <String fx:value="button" />
+               </styleClass></Button>
+            <Button mnemonicParsing="false" onAction="#handleNumKeys" prefHeight="50.0" prefWidth="58.0" text="3">
+               <styleClass>
+                  <String fx:value="other-buttons" />
+                  <String fx:value="button" />
+               </styleClass></Button>
+            <Button mnemonicParsing="false" onAction="#handleOperatorKeys" prefHeight="50.0" prefWidth="58.0" text="+">
+               <styleClass>
+                  <String fx:value="right-buttons" />
+                  <String fx:value="button" />
+               </styleClass></Button>
          </children>
       </HBox>
       <HBox prefHeight="50.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#handleNumKeys" prefHeight="50.0" prefWidth="116.0" text="0" />
-            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="58.0" text="." />
-            <Button mnemonicParsing="false" onAction="#handleOperatorKeys" prefHeight="50.0" prefWidth="58.0" text="=" />
+            <Button mnemonicParsing="false" onAction="#handleNumKeys" prefHeight="50.0" prefWidth="116.0" text="0">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <styleClass>
+                  <String fx:value="other-buttons" />
+                  <String fx:value="button" />
+               </styleClass></Button>
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="58.0" text=".">
+               <styleClass>
+                  <String fx:value="other-buttons" />
+                  <String fx:value="button" />
+               </styleClass></Button>
+            <Button mnemonicParsing="false" onAction="#handleOperatorKeys" prefHeight="50.0" prefWidth="58.0" text="=">
+               <styleClass>
+                  <String fx:value="right-buttons" />
+                  <String fx:value="button" />
+               </styleClass></Button>
          </children>
       </HBox>
    </children>

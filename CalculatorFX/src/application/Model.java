@@ -1,6 +1,12 @@
 package application;
 
+/**
+ * @author evanst.paul
+ * This is the model class of my CalculatorFX app. It handles all the data being stored,
+ * as well as how it is manipulated
+ */
 public class Model {
+	
 	/**
 	 * Handles all possible calculations
 	 * @param num1 - the first number being operated on

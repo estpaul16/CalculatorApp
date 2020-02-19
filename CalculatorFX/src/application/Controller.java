@@ -4,9 +4,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
+/**
+ * @author evanst.paul
+ * This is the controller class of my CalculatorFX app. It handles all
+ * interactions between the UI and Model, such has how to handle each button 
+ */
 public class Controller {
 	
 	@FXML private Label result;
+	
 	
 	private double num1 = 0;
 	private double num2;
@@ -51,7 +57,7 @@ public class Controller {
 			operator = selectedOp;
 			numIsFinished = true;			
 			num1 = Double.parseDouble(result.getText());
-			num2 = num1;
+			num2 = num1;		//for the case when equals is hit right after operator
 		} else {
 			num2 = Double.parseDouble(result.getText());
 			String output = calcModel.calculate(num1, num2, operator);
