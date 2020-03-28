@@ -1,2 +1,2 @@
 # CalculatorApp
-Simple calculator JavaFX desktop app
+Simple calculator desktop app made in JavaFX and modeled after the MacOS High Sierra calculator
