@@ -13,6 +13,11 @@ public class Controller {
 	
 	@FXML private Label result;
 	
+	/**
+	 * Used to show the entire result output when the length exceeds that of label boundaries
+	 */
+	@FXML private Tooltip fullResult;
+	
 	
 	private double num1 = 0;
 	private double num2;
@@ -44,6 +49,8 @@ public class Controller {
 		
 		String selectedDigit = ((Button)e.getSource()).getText();
 		result.setText(result.getText() + selectedDigit);
+		fullResult.setText(result.getText());
+		
 	}
 	
 	/**
