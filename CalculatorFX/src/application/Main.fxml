@@ -13,12 +13,12 @@
    <children>
       <StackPane id="result-area" blendMode="DARKEN" prefHeight="80.0" prefWidth="200.0" stylesheets="@application.css">
          <children>
-            <Label id="result" fx:id="result" prefWidth="92.0" text="343" textAlignment="JUSTIFY" textFill="#111111" StackPane.alignment="BOTTOM_RIGHT">
+            <Label id="result" fx:id="result" alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="215.0" stylesheets="@application.css" text="47847" textFill="#111111" StackPane.alignment="BOTTOM_RIGHT">
                <StackPane.margin>
                   <Insets right="10.0" />
                </StackPane.margin>
                <font>
-                  <Font size="48.0" />
+                  <Font size="46.0" />
                </font>
             </Label>
          </children>
