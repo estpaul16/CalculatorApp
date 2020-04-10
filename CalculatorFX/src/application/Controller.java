@@ -79,15 +79,8 @@ public class Controller {
 				num2 = Double.parseDouble(result.getText());
 			}
 			String output = calcModel.calculate(num1, num2, operator);
-			num1 = Double.parseDouble(output);	// Clicking "=" again will compute 'output (op) num2 =...'
-			
-			// If the result is an integer, display it as an integer
-			String outputText = num1 + "";
-			if (output.charAt(output.length() - 2) == '.') {
-				outputText = ((int) num1) + "";
-			}
-			
-			result.setText(outputText);
+			num1 = Double.parseDouble(output);	// Clicking "=" again will compute 'output (op) num2 =...
+			result.setText(displayDoubleOrInt(num1));
 			numIsFinished = true;
 			num2IsOld = true;
 			
@@ -116,4 +109,19 @@ public class Controller {
 		numIsFinished = true;	
 	}
 	
+	@FXML public void handleTimesNegOneKey() {
+		double output = Double.parseDouble(result.getText());
+		output = output * (-1);
+		result.setText(displayDoubleOrInt(output));
+	}
+	
+	// If the result is an integer, display it as an integer
+	private String displayDoubleOrInt(double num) {
+		String outputText = num + "";
+		if (outputText.charAt(outputText.length() - 2) == '.') {
+			return ((int) num) + "";
+		} else {
+			return outputText;
+		}
+	}
 }
