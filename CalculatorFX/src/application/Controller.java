@@ -80,7 +80,7 @@ public class Controller {
 			}
 			String output = calcModel.calculate(num1, num2, operator);
 			num1 = Double.parseDouble(output);	// Clicking "=" again will compute 'output (op) num2 =...
-			result.setText(displayDoubleOrInt(num1));
+			result.setText(displayAsDoubleOrInt(num1));
 			numIsFinished = true;
 			num2IsOld = true;
 			
@@ -112,11 +112,19 @@ public class Controller {
 	@FXML public void handleTimesNegOneKey() {
 		double output = Double.parseDouble(result.getText());
 		output = output * (-1);
-		result.setText(displayDoubleOrInt(output));
+		result.setText(displayAsDoubleOrInt(output));
+		numIsFinished = true;
+	}
+	
+	@FXML public void handlePercentKey() {
+		double output = Double.parseDouble(result.getText());
+		output = output / 100;
+		result.setText(displayAsDoubleOrInt(output));
+		numIsFinished = true;
 	}
 	
 	// If the result is an integer, display it as an integer
-	private String displayDoubleOrInt(double num) {
+	private String displayAsDoubleOrInt(double num) {
 		String outputText = num + "";
 		if (outputText.charAt(outputText.length() - 2) == '.') {
 			return ((int) num) + "";

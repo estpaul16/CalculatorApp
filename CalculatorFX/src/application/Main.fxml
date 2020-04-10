@@ -45,7 +45,7 @@
                <font>
                   <Font size="18.0" />
                </font></Button>
-            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="58.0" text="\%">
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#handlePercentKey" prefHeight="50.0" prefWidth="58.0" text="\%">
                <styleClass>
                   <String fx:value="top-buttons" />
                   <String fx:value="button" />
