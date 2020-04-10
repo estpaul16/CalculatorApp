@@ -29,7 +29,7 @@
       </StackPane>
       <HBox prefHeight="50.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="58.0" text="AC">
+            <Button fx:id="clearButton" mnemonicParsing="false" onAction="#handleClearKey" prefHeight="50.0" prefWidth="58.0" text="AC">
                <styleClass>
                   <String fx:value="top-buttons" />
                   <String fx:value="button" />
@@ -37,7 +37,7 @@
                <font>
                   <Font size="18.0" />
                </font></Button>
-            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="58.0" text="+/-">
+            <Button mnemonicParsing="false" onAction="#handleTimesNegOneKey" prefHeight="50.0" prefWidth="58.0" text="+/-">
                <styleClass>
                   <String fx:value="top-buttons" />
                   <String fx:value="button" />
@@ -184,7 +184,7 @@
                <font>
                   <Font size="22.0" />
                </font></Button>
-            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="58.0" text=".">
+            <Button mnemonicParsing="false" onAction="#handleDecimalKey" prefHeight="50.0" prefWidth="58.0" text=".">
                <styleClass>
                   <String fx:value="other-buttons" />
                   <String fx:value="button" />

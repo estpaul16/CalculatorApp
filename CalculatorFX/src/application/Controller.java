@@ -14,6 +14,11 @@ public class Controller {
 	@FXML private Label result;
 	
 	/**
+	 * Need this as a field so we can change switch text between AC and C
+	 */
+	@FXML private Button clearButton;
+	
+	/**
 	 * Used to show the entire result output when the length exceeds that of label boundaries
 	 */
 	@FXML private Tooltip fullResult;
@@ -23,12 +28,6 @@ public class Controller {
 	private double num2;
 	private String operator = "";
 	private Model calcModel = new Model();
-	/**
-	 * equalsPressed - set true after "=" operator pressed, so other
-	 * operators know if they should perform their equals function.
-	 * Check readMe for specific Mac Calculator features
-	 */
-	private boolean equalsPressed = true;
 	
 	/**
 	 * numIsFinished - set true when operator button is pressed, signifying
@@ -37,25 +36,35 @@ public class Controller {
 	private boolean numIsFinished = true; 
 	
 	/**
+	 * Needed for feature that let's the user continuously calculate 
+	 * on the same operator and second input value by pressing the equals button back to 
+	 * back (ex. Entering 3+2 to get five, then equals again and again to get 5+2+2+2 ...).
+	 * We need this variable to avoid reassigning num2 to what is in the result label if no
+	 * new value has been added since the last equals call
+	 */
+	private boolean num2IsOld = false;
+	
+	/**
 	 * handler for all number keys
-	 * @param e - the number button being pressed
 	 */
 	@FXML
 	public void handleNumKeys(ActionEvent e) {
 		if (numIsFinished) {
 			result.setText("");
 			numIsFinished = false;
+			num2IsOld = false;
+			clearButton.setText("C");
 		}
 		
 		String selectedDigit = ((Button)e.getSource()).getText();
 		result.setText(result.getText() + selectedDigit);
 		fullResult.setText(result.getText());
 		
+		
 	}
 	
 	/**
 	 * handler for all operators (+, -, x, ÷, =)
-	 * @param e - the operator button being pressed
 	 */
 	@FXML
 	public void handleOperatorKeys(ActionEvent e) {
@@ -64,14 +73,47 @@ public class Controller {
 			operator = selectedOp;
 			numIsFinished = true;			
 			num1 = Double.parseDouble(result.getText());
-			num2 = num1;		//for the case when equals is hit right after operator
+//			num2 = num1;		//for the case when equals is hit right after operator
 		} else {
-			num2 = Double.parseDouble(result.getText());
+			if (!num2IsOld) {
+				num2 = Double.parseDouble(result.getText());
+			}
 			String output = calcModel.calculate(num1, num2, operator);
-			result.setText(output);
-			equalsPressed = true;
+			num1 = Double.parseDouble(output);	// Clicking "=" again will compute 'output (op) num2 =...'
+			
+			// If the result is an integer, display it as an integer
+			String outputText = num1 + "";
+			if (output.charAt(output.length() - 2) == '.') {
+				outputText = ((int) num1) + "";
+			}
+			
+			result.setText(outputText);
 			numIsFinished = true;
+			num2IsOld = true;
 			
 		}
 	}
+	
+	@FXML
+	public void handleDecimalKey() {
+		if (numIsFinished) {
+			result.setText("0");
+			numIsFinished = false;
+			num2IsOld = false;
+			clearButton.setText("C");
+		}
+		String currentResult = result.getText();
+		// If there is already a decimal in the number then do nothing
+		if (currentResult.indexOf('.') != -1) return;
+		result.setText(currentResult + ".");	
+	}
+	
+	@FXML
+	public void handleClearKey() {
+		clearButton.setText("AC");
+		result.setText("0");
+		fullResult.setText("0");
+		numIsFinished = true;	
+	}
+	
 }
