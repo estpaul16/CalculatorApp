@@ -36,6 +36,13 @@ public class Controller {
 	private boolean numIsFinished = true; 
 	
 	/**
+	 * Set to true when the equals button is pressed, but not when an operator
+	 * button simulates the equals button. Used to determine if operator should
+	 * also act as equals button.
+	 */
+	private boolean equalsPressed = true;
+	
+	/**
 	 * Needed for feature that let's the user continuously calculate 
 	 * on the same operator and second input value by pressing the equals button back to 
 	 * back (ex. Entering 3+2 to get five, then equals again and again to get 5+2+2+2 ...).
@@ -54,6 +61,10 @@ public class Controller {
 			numIsFinished = false;
 			num2IsOld = false;
 			clearButton.setText("C");
+			num2 = 0;
+			if (equalsPressed) {
+				num1 = 0;
+			}
 		}
 		
 		String selectedDigit = ((Button)e.getSource()).getText();
@@ -64,28 +75,37 @@ public class Controller {
 	}
 	
 	/**
-	 * handler for all operators (+, -, x, ÷, =)
+	 * handler for all operators (+, -, x, ÷)
 	 */
 	@FXML
 	public void handleOperatorKeys(ActionEvent e) {
 		String selectedOp = ((Button)e.getSource()).getText();
-		if (!selectedOp.equals("=")) {
-			operator = selectedOp;
-			numIsFinished = true;			
-			num1 = Double.parseDouble(result.getText());
-//			num2 = num1;		//for the case when equals is hit right after operator
-		} else {
-			if (!num2IsOld) {
-				num2 = Double.parseDouble(result.getText());
-			}
-			String output = calcModel.calculate(num1, num2, operator);
-			num1 = Double.parseDouble(output);	// Clicking "=" again will compute 'output (op) num2 =...
-			result.setText(displayAsDoubleOrInt(num1));
-			numIsFinished = true;
-			num2IsOld = true;
-			
+		if (equalsPressed) {
+			num1 = 0;
 		}
+		
+		if (num1 != 0) {
+			opAsEqualsFunction();
+		}
+		operator = selectedOp;
+		numIsFinished = true;			
+		num1 = Double.parseDouble(result.getText());
+		equalsPressed = false;
 	}
+	
+	@FXML
+	public void handleEqualsKey() {
+		if (!num2IsOld) {
+			num2 = Double.parseDouble(result.getText());
+		}
+		String output = calcModel.calculate(num1, num2, operator);
+		num1 = Double.parseDouble(output);	// Clicking "=" again will compute 'output (op) num2 =...
+		setResultAndTipText(num1);
+		numIsFinished = true;
+		num2IsOld = true;
+		equalsPressed = true;
+	}
+	
 	
 	@FXML
 	public void handleDecimalKey() {
@@ -98,11 +118,14 @@ public class Controller {
 		String currentResult = result.getText();
 		// If there is already a decimal in the number then do nothing
 		if (currentResult.indexOf('.') != -1) return;
-		result.setText(currentResult + ".");	
+		result.setText(currentResult + ".");
+		fullResult.setText(result.getText());
 	}
 	
 	@FXML
 	public void handleClearKey() {
+		num1 = 0;
+		num2 = 0;
 		clearButton.setText("AC");
 		result.setText("0");
 		fullResult.setText("0");
@@ -112,14 +135,14 @@ public class Controller {
 	@FXML public void handleTimesNegOneKey() {
 		double output = Double.parseDouble(result.getText());
 		output = output * (-1);
-		result.setText(displayAsDoubleOrInt(output));
+		setResultAndTipText(output);
 		numIsFinished = true;
 	}
 	
 	@FXML public void handlePercentKey() {
 		double output = Double.parseDouble(result.getText());
 		output = output / 100;
-		result.setText(displayAsDoubleOrInt(output));
+		setResultAndTipText(output);
 		numIsFinished = true;
 	}
 	
@@ -131,5 +154,24 @@ public class Controller {
 		} else {
 			return outputText;
 		}
+	}
+	
+	/**
+	 * Sometimes the operator buttons will function similar to the equal button.
+	 * An example of this would be 5 + 5 + 6. When the second plus button is pressed,
+	 * the output would show 10 as a result of the first operation 5 + 5
+	 */
+	private void opAsEqualsFunction() {
+		num2 = Double.parseDouble(result.getText());
+		String output = calcModel.calculate(num1, num2, operator);
+		double dubOutput = Double.parseDouble(output);
+		setResultAndTipText(dubOutput);
+		
+		num2IsOld = true;
+	}
+	
+	private void setResultAndTipText(double dubOutput) {
+		result.setText(displayAsDoubleOrInt(dubOutput));
+		fullResult.setText(result.getText());
 	}
 }
